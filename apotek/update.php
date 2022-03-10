@@ -10,10 +10,10 @@ $id = date('YmdHis') .  rand(100, 999);
 
 include 'koneksi.php';
 
-$sql = "INSERT INTO data_obat VALUES ('$id','$kode_obat','$nama_obat','$harga_beli','$harga_jual','$stok','$satuan')";
+$sql = "UPDATE  data_obat SET kode_obat='$kode_obat',nama_obat='$nama_obat',harga_beli='$harga_beli',harga_jual='$harga_jual',stok='$stok',satuan='$satuan' WHERE id='$id' ";
 
 if (mysqli_query($conn, $sql)) {
     header('location:index.php');
 } else {
-    echo "Gagal Tambah Data";
+    echo "Gagal Edit Data";
 }

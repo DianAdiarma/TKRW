@@ -14,8 +14,9 @@
 
 <body>
     <div class="container">
-        <h1>Data Obat</h1>
-        <table class="table">
+        <h1 class="mt-5">Data Obat</h1>
+        <a class="btn btn-primary" href="create.php">Tambah Data</a>
+        <table class="table mt-3">
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">Kode Obat</th>
@@ -44,7 +45,7 @@
                             <td><?php echo $data["stok"] ?></td>
                             <td><?php echo $data["satuan"] ?></td>
                             <td>
-                                <a class="btn btn-danger" href="">Hapus</a>
+                                <a class="btn btn-danger" href="delete.php?id=<?php echo $data["id"] ?>">Hapus</a>
                                 <a class="btn btn-primary" href="edit.php?id=<?php echo $data["id"] ?>">Edit</a>
                             </td>
                         </tr>

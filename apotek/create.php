@@ -15,7 +15,7 @@
 
 <body>
     <div class="container">
-        <h1>Input Data Obat</h1>
+        <h1 class="mt-5">Input Data Obat</h1>
         <form action="simpan.php" method="POST">
             <div class="form-group mt-5">
                 <label for="kode_obat">Kode Obat</label>

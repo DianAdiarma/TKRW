@@ -1,3 +1,18 @@
+<?php
+
+include 'koneksi.php';
+
+if (!isset($_GET['id'])) {
+    header('location : index.php');
+}
+$id = $_GET['id'];
+$sql = "SELECT * FROM data_obat WHERE id = '$id'";
+$result = mysqli_query($conn, $sql);
+if (mysqli_num_rows($result) > 0) {
+    $data = mysqli_fetch_array($result);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,16 +30,7 @@
 
 <body>
     <div class="container">
-        <h1>Input Data Obat</h1>
-
-        <?php
-        $sql = "SELECT * FROM data_obat WHERE id = '$id'";
-        $result = mysqli_query($conn, $sql);
-        if (mysqli_num_rows($result) > 0) {
-            $data = mysqli_fetch_assoc($result);
-        }
-        ?>
-
+        <h1 class="mt-5">Edit Data Obat</h1>
         <form action="update.php" method="POST">
             <div class="form-group mt-5">
                 <label for="kode_obat">Kode Obat</label>
@@ -32,23 +38,23 @@
             </div>
             <div class="form-group">
                 <label for="nama_obat">Nama Obat</label>
-                <input value="nama_obat" name="nama_obat" type="text" class="form-control" placeholder="Masukkan Nama Obat">
+                <input value="<?php echo ($data['nama_obat']); ?>" name="nama_obat" type="text" class="form-control" placeholder="Masukkan Nama Obat">
             </div>
             <div class="form-group">
                 <label for="harga_beli">Harga Beli</label>
-                <input value="harga_beli" name="harga_beli" type="text" class="form-control" placeholder="Masukkan Harga Beli">
+                <input value="<?php echo ($data['harga_beli']); ?>" name="harga_beli" type="text" class="form-control" placeholder="Masukkan Harga Beli">
             </div>
             <div class="form-group">
                 <label for="harga_Jual">Harga Jual</label>
-                <input value="harga_jual" name="harga_jual" type="text" class="form-control" placeholder="Masukkan Harga Jual">
+                <input value="<?php echo ($data['harga_jual']); ?>" name="harga_jual" type="text" class="form-control" placeholder="Masukkan Harga Jual">
             </div>
             <div class="form-group">
                 <label for="stok">Stok</label>
-                <input value="stok" name="stok" type="text" class="form-control" placeholder="Masukkan stok">
+                <input value="<?php echo ($data['stok']); ?>" name="stok" type="text" class="form-control" placeholder="Masukkan stok">
             </div>
             <div class="form-group">
                 <label for="satuan">Satuan</label>
-                <input value="satuan" name="satuan" type="text" class="form-control" s placeholder="Masukkan satuan">
+                <input value="<?php echo ($data['satuan']); ?>" name="satuan" type="text" class="form-control" s placeholder="Masukkan satuan">
             </div>
 
             <button type="submit" class="btn btn-primary">Submit</button>
