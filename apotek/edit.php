@@ -56,7 +56,7 @@ if (mysqli_num_rows($result) > 0) {
                 <label for="satuan">Satuan</label>
                 <input value="<?php echo ($data['satuan']); ?>" name="satuan" type="text" class="form-control" s placeholder="Masukkan satuan">
             </div>
-
+            <td><input type="hidden" name="id" value="<?php echo $data['id'] ?>"></td>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>

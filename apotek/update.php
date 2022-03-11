@@ -6,7 +6,7 @@ $harga_beli = $_POST['harga_beli'];
 $harga_jual = $_POST['harga_jual'];
 $stok = $_POST['stok'];
 $satuan = $_POST['satuan'];
-$id = date('YmdHis') .  rand(100, 999);
+$id = $_POST['id'];
 
 include 'koneksi.php';
 
